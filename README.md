@@ -1,2 +1,1 @@
-# Berkay
-İlk sitem
+index.html
