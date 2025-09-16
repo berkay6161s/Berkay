@@ -1,24 +1,70 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İngilizce Çevirme Ödevi</title>
+</head>
 <body>
-<h1> ingilizce çevirme ödevi</h1>
-<h3>11. Read the text again and put the sentences (a-f) in the correct order.</h3>
+  <h1>İngilizce Çevirme Ödevi</h1>
+  <h3>11. Read the text again and put the sentences (a-f) in the correct order.</h3>
 
-<p>a. She built a network of members on the campuses all over the USA.</p>
+  <p>a. She built a network of members on the campuses all over the USA.</p>
+  <p>b. She decided to study Public and International Affairs at Princeton University.</p>
+  <p>c. She increased the number of areas which were served by Teach For America.</p>
+  <p>d. She got her degree and started Teach For America in New York City.</p>
+  <p>e. She founded Teach For All to teach poor students all over the world.</p>
+  <p>f. She prepared her senior thesis on a project to teach in poor areas with the graduates of the top universities.</p>
 
+  <hr>
 
-<p>b. She decided to study Public and International Affairs at Princeton University.</p>
+  <!-- Doğru / Yanlış Testi -->
+  <h2>Doğru / Yanlış Testi</h2>
+  <div id="quiz-container" style="margin: 15px 0; padding: 15px; background: #f0f0f0; border-radius: 8px;">
+    <div id="question-box" style="font-size: 1.1em; margin-bottom: 15px;">Sorular buraya gelecek...</div>
+    <button id="btn-true" style="margin-right: 10px; padding: 10px 20px; background: #16a34a; color: white; border: none; border-radius: 5px;">Doğru</button>
+    <button id="btn-false" style="padding: 10px 20px; background: #ef4444; color: white; border: none; border-radius: 5px;">Yanlış</button>
+    <div id="feedback" style="margin-top: 15px; font-weight: bold;"></div>
+  </div>
 
+  <script>
+    const quizQuestions = [
+      { q: "Teach For America, New York'ta başlamıştır.", a: true },
+      { q: "Princeton Üniversitesi ABD dışındadır.", a: false },
+      { q: "Teach For All, yoksul öğrencilere yardım etmeyi amaçlar.", a: true }
+    ];
 
-<p>c. She increased the number of areas which were served by Teach For America.</p>
+    let currentQuestion = 0;
 
+    function loadQuestion() {
+      document.getElementById("question-box").innerText = quizQuestions[currentQuestion].q;
+      document.getElementById("feedback").innerText = "";
+    }
 
-<p>d. She got her degree and started Teach For America in New York City.</p>
+    function checkAnswer(userAnswer) {
+      const feedback = document.getElementById("feedback");
+      if (userAnswer === quizQuestions[currentQuestion].a) {
+        feedback.innerText = "✅ Doğru!";
+      } else {
+        feedback.innerText = "❌ Yanlış!";
+      }
 
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < quizQuestions.length) {
+          loadQuestion();
+        } else {
+          document.getElementById("question-box").innerText = "Test tamamlandı!";
+          feedback.innerText = "";
+          document.getElementById("btn-true").disabled = true;
+          document.getElementById("btn-false").disabled = true;
+        }
+      }, 1000);
+    }
 
-<p>e. She founded Teach For All to teach poor students all over the world.</p>
+    document.getElementById("btn-true").addEventListener("click", () => checkAnswer(true));
+    document.getElementById("btn-false").addEventListener("click", () => checkAnswer(false));
 
-
-<p>f. She prepared her senior thesis on a project to teach in poor areas with the graduates of the top universities.
-</p>
+    loadQuestion();
+  </script>
 </body>
 </html>
