@@ -28,17 +28,26 @@
 What do you think about Wendy Kopp's success story?</h3>
 <p>I think it is really inspiring and brave</p>
 
-<script>
-  const dictionary = {
-    "apple": "elma",
-    "book": "kitap",
-    "car": "araba"
-  };
+<h3>Çeviri Asistanı</h3>
 
-  function translateWord() {
-    const word = document.getElementById("wordInput").value.toLowerCase();
-    document.getElementById("result").innerText = dictionary[word] || "Bulunamadı!";
-  }
+<!-- Kullanıcının kelime yazacağı kutu -->
+<input type="text" id="wordInput" placeholder="Kelime gir (örn: apple)">
+<button onclick="translateWord()">Çevir</button>
+
+<!-- Sonucun yazılacağı yer -->
+<p id="result"></p>
+
+<script>
+const dictionary = {
+  "apple": "elma",
+  "book": "kitap",
+  "car": "araba"
+};
+
+function translateWord() {
+  const word = document.getElementById("wordInput").value.toLowerCase();
+  document.getElementById("result").innerText = dictionary[word] || "Bulunamadı!";
+}
 </script>
 </body>
 </html>
