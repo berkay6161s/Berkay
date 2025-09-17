@@ -27,5 +27,18 @@
 <h3>13. Work in pairs and discuss the following question.
 What do you think about Wendy Kopp's success story?</h3>
 <p>I think it is really inspiring and brave</p>
+
+<script>
+  const dictionary = {
+    "apple": "elma",
+    "book": "kitap",
+    "car": "araba"
+  };
+
+  function translateWord() {
+    const word = document.getElementById("wordInput").value.toLowerCase();
+    document.getElementById("result").innerText = dictionary[word] || "Bulunamadı!";
+  }
+</script>
 </body>
 </html>
